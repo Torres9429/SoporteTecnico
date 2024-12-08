@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bienvenida - ContraTiks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/menu.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .welcome-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #f8f9fa;
+            opacity: 0;
+            animation: fadeIn 1s forwards, slideIn 1.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(30px); }
+            100% { transform: translateY(0); }
+        }
+
+        .welcome-buttons {
+            margin-top: 20px;
+            opacity: 0;
+            animation: buttonFadeIn 1s 1.5s forwards;
+        }
+
+        @keyframes buttonFadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .btn-lg {
+            padding: 12px 24px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-lg:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body id="body-pd">
+<header class="header" id="header">
+
+</header>
+<!-- Pantalla de Bienvenida -->
+<div class="welcome-container">
+    <h1 class="display-4">¡Bienvenido a ContraTiks!</h1>
+    <p class="lead mt-3">Gestiona tus tickets de soporte de manera eficiente.</p>
+    <div class="welcome-buttons">
+        <a href="#" class="btn btn-primary btn-lg me-2" onclick="">
+            <i class="bx bx-folder-plus"></i> Generar Ticket
+        </a>
+        <a href="#" class="btn btn-secondary btn-lg" onclick="">
+            <i class="bx bx-check"></i> Resolver Ticket
+        </a>
+        <a href="#" class="btn btn-secondary btn-lg" onclick="">
+            <i class="bx bx-list-ul"></i> Historial
+        </a>
+    </div>
+</div>
+
+<script>
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
