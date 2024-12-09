@@ -1,10 +1,15 @@
 package utez.edu.mx.SoporteTecnico.estructuras;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 public class ArrayList<T> {
     // Atributos que definen al ArrayList
     private T[] array;
     private int size;
     private int capacity;
+    transient Object[] elementData; // non-private to simplify nested class access
+    private static final Object[] EMPTY_ELEMENTDATA = {};
 
     // Constructor de la lista
     @SuppressWarnings("unchecked")
@@ -13,6 +18,18 @@ public class ArrayList<T> {
         this.array = (T[]) new Object[this.capacity];
         this.size = 0;
     }
+
+    @SuppressWarnings("unchecked")
+    public <T> T[] toArray(T[] a) {
+        if (a.length < size)
+            return (T[]) Arrays.copyOf(elementData, size, a.getClass());
+        System.arraycopy(elementData, 0, a, 0, size);
+        if (a.length > size)
+            a[size] = null;
+        return a;
+    }
+
+
 
     // Redimensionar el array si es necesario
     @SuppressWarnings("unchecked")

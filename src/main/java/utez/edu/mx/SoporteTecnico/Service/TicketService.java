@@ -1,22 +1,25 @@
 package utez.edu.mx.SoporteTecnico.Service;
 
 import org.springframework.stereotype.Service;
+import utez.edu.mx.SoporteTecnico.estructuras.LinkedList;
 import utez.edu.mx.SoporteTecnico.model.Problema;
 import utez.edu.mx.SoporteTecnico.model.Tecnico;
 import utez.edu.mx.SoporteTecnico.model.Ticket;
 import utez.edu.mx.SoporteTecnico.estructuras.Queue;
-import utez.edu.mx.SoporteTecnico.estructuras.ArrayList;
 import utez.edu.mx.SoporteTecnico.utils.TypesResponse;
 
 import java.text.SimpleDateFormat;
+//import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.Date;
+//import java.util.List;
 import java.util.Random;
 
 @Service
 public class TicketService {
 
     private Queue<Ticket> colaTickets = new Queue<>();
-    private ArrayList<Ticket> ticketsResueltos = new ArrayList<>();
+    private LinkedList<Ticket> ticketsResueltos = new LinkedList<>();
     private int contadorIdTickets = 1;
     private Random random = new Random(); // Generador de números aleatorios
 
@@ -45,7 +48,7 @@ public class TicketService {
         return ticket;
     }
 
-    public ArrayList<Ticket> obtenerHistorialTickets() {
+    public LinkedList<Ticket> obtenerHistorialTickets() {
         return ticketsResueltos;
     }
 

@@ -10,10 +10,15 @@ public class Message {
         this.type = type;
     }
 
-    public Message(Object result,String text, TypesResponse type) {
+    /*public Message(Object result,String text, TypesResponse type) {
         this.text = text;
         this.type = type;
         this.result = result;
+    }*/
+    public Message(Object result, String text, TypesResponse type) {
+        this.result = result;
+        this.text = text;
+        this.type = type;
     }
 
     public Message(String inicioDeSesiónExitoso, TypesResponse typesResponse, String token) {
