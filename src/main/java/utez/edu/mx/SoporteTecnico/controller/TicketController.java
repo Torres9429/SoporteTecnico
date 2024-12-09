@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import utez.edu.mx.SoporteTecnico.Service.TicketService;
-import utez.edu.mx.SoporteTecnico.estructuras.ArrayList;
 import utez.edu.mx.SoporteTecnico.estructuras.LinkedList;
 import utez.edu.mx.SoporteTecnico.estructuras.Queue;
 import utez.edu.mx.SoporteTecnico.model.Ticket;
@@ -12,6 +11,7 @@ import utez.edu.mx.SoporteTecnico.utils.Message;
 import utez.edu.mx.SoporteTecnico.utils.TypesResponse;
 
 //import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -108,6 +108,7 @@ public class TicketController {
     public ResponseEntity<Message> obtenerHistorial() {
         LinkedList<Ticket> historial = ticketService.obtenerHistorialTickets();
         Queue<Ticket> historialCola = new Queue<>();
+
         // Imprimir el historial en consola
         System.out.println("Historial de Tickets Resueltos:");
         if (historial.size() == 0) {
@@ -121,9 +122,18 @@ public class TicketController {
                 historialCola.offer(ticket);
             }
         }
+
+        // Convertir la cola a una lista estándar
+        List<Ticket> historialParaJson = new ArrayList<>() {
+        };
+        while (!historialCola.isEmpty()) {
+            historialParaJson.add(historialCola.poll());
+        }
+
         // Retornar la respuesta
-        return ResponseEntity.ok(new Message(historialCola, "Historial de tickets resueltos", TypesResponse.SUCCESS));
+        return ResponseEntity.ok(new Message(historialParaJson, "Historial de tickets resueltos", TypesResponse.SUCCESS));
     }
+
 
 
 }
