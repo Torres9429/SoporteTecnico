@@ -2,15 +2,13 @@ package utez.edu.mx.SoporteTecnico.Service;
 
 import org.springframework.stereotype.Service;
 import utez.edu.mx.SoporteTecnico.estructuras.LinkedList;
+import utez.edu.mx.SoporteTecnico.estructuras.Queue;
 import utez.edu.mx.SoporteTecnico.model.Problema;
 import utez.edu.mx.SoporteTecnico.model.Tecnico;
 import utez.edu.mx.SoporteTecnico.model.Ticket;
 import utez.edu.mx.SoporteTecnico.estructuras.Queue;
-import utez.edu.mx.SoporteTecnico.utils.TypesResponse;
 
 import java.text.SimpleDateFormat;
-//import java.util.ArrayList;
-import java.util.ArrayList;
 import java.util.Date;
 //import java.util.List;
 import java.util.Random;
